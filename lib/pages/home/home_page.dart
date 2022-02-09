@@ -7,7 +7,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _showMenu;
+  late bool _showMenu;
 
   @override
   void initState() {
@@ -17,20 +17,47 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double _screenHeigth = MediaQuery.of(context).size.height;
+    var child2 = null;
     return Scaffold(
-        backgroundColor: Colors.purple[800],
-        body: Stack(
-          alignment: Alignment.topCenter,
-          children: <Widget>[
-            MyAppBar(
-              showMenu: _showMenu,
-              onTap: () {
-                setState(() {
-                  _showMenu = !_showMenu;
-                });
-              },
+      backgroundColor: Colors.purple[800],
+      body: Stack(
+        alignment: Alignment.topCenter,
+        children: <Widget>[
+          MyAppBar(
+            showMenu: _showMenu,
+            onTap: () {
+              setState(() {
+                _showMenu = !_showMenu;
+              });
+            },
+          ),
+          Positioned(
+            top: _screenHeigth * .19,
+            height: _screenHeigth * .60,
+            left: 0,
+            right: 0,
+            //width: MediaQuery.of(context).size.width,
+            child: PageView(
+              physics: BouncingScrollPhysics(),
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    color: Colors.red,
+                  ),
+                ),
+                Container(
+                  color: Colors.blue,
+                ),
+                Container(
+                  color: Colors.yellow,
+                ),
+              ],
             ),
-          ],
-        ));
+          )
+        ],
+      ),
+    );
   }
 }
