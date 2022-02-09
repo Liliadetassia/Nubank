@@ -24,6 +24,11 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             MyAppBar(
               showMenu: _showMenu,
+              onTap: () {
+                setState(() {
+                  _showMenu = !_showMenu;
+                });
+              },
             ),
           ],
         ));
