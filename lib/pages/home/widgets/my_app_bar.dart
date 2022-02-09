@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget {
+  final bool showMenu;
+
+  const MyAppBar({Key? key, this.showMenu}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -12,6 +15,7 @@ class MyAppBar extends StatelessWidget {
           color: Colors.purple[800],
           height: 120,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +37,7 @@ class MyAppBar extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(Icons.expand_more)
+              Icon(!showMenu ? Icons.expand_more : Icons.expand_less)
             ],
           ),
         ),
