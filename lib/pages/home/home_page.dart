@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nubankclone/pages/home/widgets/my_app_bar.dart';
+import 'package:nubankclone/pages/home/widgets/my_dots_app.dart';
 import 'package:nubankclone/pages/home/widgets/page_view_app.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,44 +37,17 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           PageViewApp(
-            top: _screenHeigth * .24,
+            top: !_showMenu ? _screenHeigth * .24 : _screenHeigth * .75,
             onChanged: (index) {
               setState(() {
                 _currentIndex = index;
               });
             },
           ),
-          Positioned(
+          MyDotsApp(
             top: _screenHeigth * .70,
-            child: Row(
-              children: <Widget>[
-                Container(
-                  height: 7,
-                  width: 7,
-                  decoration: BoxDecoration(
-                      color: Colors.white, shape: BoxShape.circle),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Container(
-                  height: 7,
-                  width: 7,
-                  decoration: BoxDecoration(
-                      color: Colors.white, shape: BoxShape.circle),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Container(
-                  height: 7,
-                  width: 7,
-                  decoration: BoxDecoration(
-                      color: Colors.white, shape: BoxShape.circle),
-                )
-              ],
-            ),
-          )
+            currentIndex: _currentIndex,
+          ),
         ],
       ),
     );
