@@ -33,8 +33,8 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           Positioned(
-            top: _screenHeigth * .19,
-            height: _screenHeigth * .60,
+            top: _screenHeigth * .24,
+            height: _screenHeigth * .45,
             left: 0,
             right: 0,
             //width: MediaQuery.of(context).size.width,
@@ -44,7 +44,9 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Container(
-                    color: Colors.red,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5)),
                   ),
                 ),
                 Container(
