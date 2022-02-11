@@ -90,6 +90,7 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           MyDotsApp(
+            showMenu: _showMenu,
             top: _screenHeigth * .70,
             currentIndex: _currentIndex,
           ),
